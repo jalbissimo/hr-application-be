@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hr-application
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/createTables/changeLog.yaml
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.springframework.security: info

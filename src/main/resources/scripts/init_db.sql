@@ -1,0 +1,3 @@
+CREATE DATABASE "hr-application";
+CREATE USER admin WITH ENCRYPTED PASSWORD 'admin';
+GRANT ALL PRIVILEGES ON DATABASE "hr-application" TO admin;
