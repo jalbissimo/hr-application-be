@@ -1,5 +1,8 @@
 server:
-  port: 8081
+  port: 9014
+  shutdown: graceful
+  error:
+    include-message: always
 
 spring:
   datasource:
@@ -7,6 +10,13 @@ spring:
     username: admin
     password: admin
     driverClassName: org.postgresql.Driver
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/hr
+          jwk-set-uri: http://localhost:8080/realms/hr/protocol/openid-connect/certs
 
 
   jpa:
@@ -25,3 +35,4 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.springframework.security: info
+    org.springframework.boot.devtools: debug
